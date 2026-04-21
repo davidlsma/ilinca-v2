@@ -40,10 +40,10 @@ const vegetarianos = platos.filter(p => p.vegetariano);
             />
           </div>
           <div class="menu-card-body">
-            <h3 class="heading-md" style="color: var(--color-on-dark); margin-bottom: 0.5rem;">
+            <h3 style="color: var(--color-on-dark); margin-bottom: 0.3rem; font-size: 0.95rem; font-weight: 700;">
               {plato.nombre}
             </h3>
-            <p style="color: var(--color-on-dark-muted); font-size: 0.9rem; line-height: 1.6;">
+            <p style="color: var(--color-on-dark-muted); font-size: 0.8rem; line-height: 1.5;">
               {plato.descripcion}
             </p>
           </div>
@@ -72,13 +72,13 @@ const vegetarianos = platos.filter(p => p.vegetariano);
             />
           </div>
           <div class="menu-card-body">
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <h3 class="heading-md" style="color: var(--color-on-dark);">
+            <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.3rem;">
+              <h3 style="color: var(--color-on-dark); font-size: 0.95rem; font-weight: 700;">
                 {plato.nombre}
               </h3>
               <span class="veggie-badge">Vegetariano</span>
             </div>
-            <p style="color: var(--color-on-dark-muted); font-size: 0.9rem; line-height: 1.6;">
+            <p style="color: var(--color-on-dark-muted); font-size: 0.8rem; line-height: 1.5;">
               {plato.descripcion}
             </p>
           </div>
@@ -121,7 +121,7 @@ const vegetarianos = platos.filter(p => p.vegetariano);
 
   @media (min-width: 640px) {
     .menu-grid-2 {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -132,11 +132,11 @@ const vegetarianos = platos.filter(p => p.vegetariano);
 
   .menu-card-img-wrap {
     overflow: hidden;
-    aspect-ratio: 4/3;
+    aspect-ratio: 3/2;
   }
 
   .menu-card--veggie .menu-card-img-wrap {
-    aspect-ratio: 16/7;
+    aspect-ratio: 3/2;
   }
 
   .menu-card-img {
@@ -151,7 +151,7 @@ const vegetarianos = platos.filter(p => p.vegetariano);
   }
 
   .menu-card-body {
-    padding: 1.25rem 1.5rem 1.5rem;
+    padding: 0.85rem 1.1rem 1.1rem;
   }
 
   .menu-fotos {
