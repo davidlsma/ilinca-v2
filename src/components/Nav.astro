@@ -1,0 +1,166 @@
+---
+const navLinks = [
+  { href: '/#nosotros',  label: 'Nosotros' },
+  { href: '/#menu',      label: 'Menú' },
+  { href: '/#eventos',   label: 'Eventos' },
+  { href: '/#galeria',   label: 'Galería' },
+  { href: '/#reservas',  label: 'Reservaciones' },
+];
+---
+
+<header id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <nav class="site-container flex items-center justify-between" style="padding-top: 1.25rem; padding-bottom: 1.25rem;">
+
+    <!-- Logo: imagen arriba, nombre abajo -->
+    <a href="/" aria-label="ILINCA Resto Bar — Inicio" class="nav-logo-wrap">
+      <img
+        src="/assets/images/logo.jpg"
+        alt="ILINCA Resto Bar"
+        width="52"
+        height="52"
+        loading="eager"
+        class="nav-logo-img"
+      />
+      <span class="nav-logo-name">ILINCA</span>
+    </a>
+
+    <!-- Links desktop -->
+    <ul class="hidden md:flex gap-8" style="margin-left: auto;" role="list">
+      {navLinks.map(link => (
+        <li>
+          <a href={link.href} class="nav-link">{link.label}</a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Hamburger mobile -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-white p-2"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg id="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden" style="background: var(--color-dark); border-top: 1px solid rgba(245,237,216,0.1);">
+    <ul class="site-container flex flex-col py-4" role="list">
+      {navLinks.map(link => (
+        <li>
+          <a href={link.href} class="nav-link block py-3" style="border-bottom: 1px solid rgba(245,237,216,0.07);">
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li class="pt-3">
+        <a href="https://instagram.com/ilinca.restobar" target="_blank" rel="noopener noreferrer" class="nav-link">
+          Instagram
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      nav?.classList.add('scrolled');
+    } else {
+      nav?.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  btn?.addEventListener('click', () => {
+    const isHidden = menu?.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!isHidden));
+    iconOpen?.classList.toggle('hidden', !isHidden);
+    iconClose?.classList.toggle('hidden', isHidden ?? true);
+  });
+
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+    });
+  });
+</script>
+
+<style>
+  #main-nav {
+    background: transparent;
+  }
+
+  #main-nav.scrolled {
+    background: var(--color-dark);
+    border-bottom: 1px solid rgba(245,237,216,0.08);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+  }
+
+  .nav-logo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(245,237,216,0.3);
+  }
+
+  .nav-logo-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: var(--color-on-dark);
+    text-transform: uppercase;
+  }
+
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-on-dark);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 3px;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-surface);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+</style>

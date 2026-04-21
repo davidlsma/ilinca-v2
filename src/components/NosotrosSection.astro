@@ -1,0 +1,121 @@
+---
+---
+
+<section
+  id="nosotros"
+  class="section-pad"
+  style="background-color: var(--color-surface);"
+>
+  <div class="site-container">
+    <div class="nosotros-grid">
+
+      <!-- Columna izquierda: dos imágenes con offset horizontal -->
+      <div class="fade-in" style="display: flex; flex-direction: column; gap: 1rem;">
+        <img
+          src="/assets/images/menu-ambiante-1.jpg"
+          alt="Ambiente ILINCA Resto Bar"
+          loading="lazy"
+          width="700"
+          height="500"
+          style="width: 85%; height: 280px; object-fit: cover; display: block; align-self: flex-start;"
+        />
+        <img
+          src="/assets/images/menu-ambiante-2.jpg"
+          alt="Interior ILINCA Resto Bar"
+          loading="lazy"
+          width="800"
+          height="500"
+          style="width: 85%; height: 280px; object-fit: cover; display: block; align-self: flex-end;"
+        />
+      </div>
+
+      <!-- Columna texto -->
+      <div class="nosotros-text-col">
+        <p class="label-sm fade-in" style="color: var(--color-primary); margin-bottom: 1rem;">
+          Nuestra historia
+        </p>
+        <h2 class="heading-xl fade-in" style="color: var(--color-on-surface); margin-bottom: 2rem;">
+          Un rincón de campo con sabor a casa
+        </h2>
+        <p class="body-lg fade-in" style="color: var(--color-on-surface-muted); margin-bottom: 1.25rem;">
+          Con más de 5 años compartiendo mesas, en ILINCA creemos que la mejor mesa es la que se comparte. Nacimos con la idea de traer los sabores auténticos de la cocina casera a un espacio tranquilo, rodeado de naturaleza y de la calma que el campo regala.
+        </p>
+        <p class="body-lg fade-in" style="color: var(--color-on-surface-muted); margin-bottom: 2.5rem;">
+          Acá no hay apuros. Hay buena comida hecha con cariño, música que acompaña y el tiempo justo para disfrutar con quienes más querés. Ya sea en familia, con amigos o en pareja, bienvenidos a nuestra mesa.
+        </p>
+
+        <div class="nosotros-stats fade-in">
+          <div class="stat-item">
+            <span class="heading-lg" style="color: var(--color-primary);">Vie – Sáb</span>
+            <span class="label-sm" style="color: var(--color-on-surface-muted);">20:30 – cierre</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="heading-lg" style="color: var(--color-primary);">Domingo</span>
+            <span class="label-sm" style="color: var(--color-on-surface-muted);">13:30 – 18:30</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .nosotros-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .nosotros-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
+  }
+
+  .nosotros-img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    max-height: 500px;
+  }
+
+  .nosotros-img-2 {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    max-height: 280px;
+  }
+
+  .nosotros-text-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .nosotros-stats {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-surface-high);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 3rem;
+    background: var(--color-surface-high);
+  }
+</style>

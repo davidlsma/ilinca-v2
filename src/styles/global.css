@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+/* ===== DESIGN TOKENS ===== */
+:root {
+  --color-primary:          #8B1A2A;   /* rojo bordo */
+  --color-primary-dark:     #6B1220;   /* rojo bordo oscuro */
+  --color-surface:          #F5EDD8;   /* beige cálido */
+  --color-surface-low:      #EDE0C4;   /* beige medio */
+  --color-surface-high:     #C8B8A0;   /* separadores */
+  --color-dark:             #1C0F09;   /* fondo oscuro */
+  --color-dark-mid:         #2A1810;   /* fondo oscuro medio */
+  --color-on-surface:       #1C0F09;   /* texto sobre fondo claro */
+  --color-on-surface-muted: #7A6252;   /* texto secundario sobre claro */
+  --color-on-dark:          #F5EDD8;   /* texto sobre fondo oscuro */
+  --color-on-dark-muted:    #A8917A;   /* texto secundario sobre oscuro */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --nav-blur:     20px;
+  --site-pad:     clamp(1.25rem, 5vw, 5rem);
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-dark);
+  color: var(--color-on-dark);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== LAYOUT ===== */
+.site-container {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--site-pad);
+  padding-right: var(--site-pad);
+}
+
+.section-pad {
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+/* ===== TIPOGRAFÍA ===== */
+.heading-display {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  line-height: 0.92;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.heading-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 1;
+  font-weight: 500;
+}
+
+.heading-lg {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 3rem);
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.heading-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.label-sm {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.body-lg {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.75;
+}
+
+/* ===== BOTONES ===== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 1rem 2.25rem;
+  border-radius: 0;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 1rem 2.25rem;
+  border-radius: 0;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.btn-light:hover {
+  opacity: 0.85;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--color-surface);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.25rem;
+  border-radius: 0;
+  border: 1px solid rgba(245,237,216,0.4);
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-surface);
+}
+
+/* ===== ANIMACIONES FADE-IN ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
